@@ -14,8 +14,9 @@ import glob
 # Import Adafruit IO MQTT client.
 from Adafruit_IO import MQTTClient
 
-ADAFRUIT_IO_USERNAME = "IgnacioPardo"
-ADAFRUIT_IO_KEY = "aio_wVOr066MRecNWsqKLkP172DBNgRp"
+import os
+
+from keys import *
 
 # Set to the ID of the feed to subscribe to for updates.
 FEED_ID = 'Test'

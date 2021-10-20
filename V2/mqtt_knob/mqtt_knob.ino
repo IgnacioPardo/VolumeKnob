@@ -25,6 +25,7 @@ int count = 0;
 // set up the 'counter' feed
 AdafruitIO_Feed *volume = io.feed("Test");
 
+int llastVal = 0;
 int lastVal = -1;
 int val = 0;
 
@@ -63,8 +64,9 @@ void loop() {
 
   val = analogRead(A0);                      //read potentiometer value
   val = map(val, 0, 1023, 0, 100);
-  if (val != lastVal){
+  if (val != lastVal && val != llastVal){
     volume->save(val);
+    llastVal = lastVal;
     lastVal = val;
     Serial.print("sending -> ");
     Serial.println(val);
